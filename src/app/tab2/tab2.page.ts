@@ -10,11 +10,15 @@ export class Tab2Page {
   private randomnumber : number;
   guess : number;
   correct : boolean = false;
+  message : string = "";
 
   constructor() {}
 
   numbergenerator() {
     this.randomnumber = Math.floor((Math.random() * 10) + 1);
+    if (this.randomnumber > 0) {
+      this.message = "Number generated!"
+    }
     // this.randomnumber = 1
     console.log(this.randomnumber);
   }
@@ -24,6 +28,7 @@ export class Tab2Page {
       this.correct = true;
     } else {
       this.correct = false;
+      this.message = "Sorry your answer is incorrect."
     }
   }
 
