@@ -4,6 +4,15 @@
   right: 0;
 }
 
+// ion-item {
+//   padding: 0px;
+// }
+
+// ion-input {
+//   padding: 0px;
+//   margin: 0px;
+// }
+
 ion-card-header {
   text-align: left;
 }
@@ -11,6 +20,14 @@ ion-card-header {
 ion-card-content {
   text-align: justify;
   padding-bottom: 0px;
+}
+
+ion-card {
+  box-shadow: none;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  background-color: transparent;
 }
 
 #input-field {
@@ -42,4 +59,22 @@ ion-card-content {
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
+}
+
+#false-answer {
+  //   border-style: solid;
+  //   border-color: #ec455b;
+  //   border-width: 2px;
+  color: #ec455b;
+  padding: 20px;
+  margin: 20px;
+}
+
+#correct-answer {
+  //   border-style: solid;
+  //   border-color: #ec455b;
+  //   border-width: 2px;
+  color: #2ed36f;
+  padding: 20px;
+  margin: 20px;
 }

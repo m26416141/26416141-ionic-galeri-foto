@@ -50,12 +50,23 @@
         Submit
       </ion-button>
     </div>
+    <div style="margin-top: 40px">
+      <ion-label>Result:</ion-label>
+    </div>
   </div>
   <div>
     <ng-template
       *ngIf="correct; then trueanswer; else falseanswer"
     ></ng-template>
   </div>
-  <ng-template #falseanswer> hello </ng-template>
-  <ng-template #trueanswer> your answer is correct </ng-template>
+  <ng-template #falseanswer>
+    <div id="false-answer">
+      <ion-label> Sorry your answer is incorrect. </ion-label>
+    </div>
+  </ng-template>
+  <ng-template #trueanswer>
+    <div id="correct-answer">
+      <ion-label> Congratulations your answer is correct! </ion-label>
+    </div>
+  </ng-template>
 </ion-content>
