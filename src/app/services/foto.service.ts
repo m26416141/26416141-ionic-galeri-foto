@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CameraPhoto, CameraResultType, CameraSource, FilesystemDirectory, Plugins } from '@capacitor/core';
+import { CameraPhoto, CameraResultType, CameraSource, Capacitor, FilesystemDirectory, Plugins } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
 // import { rejects } from 'node:assert';
 // import { resolve } from 'node:path';
@@ -46,17 +46,31 @@ export class FotoService {
       directory : FilesystemDirectory.Data
     });
 
-    return {
-      filePath : namaFile,
-      webviewPath : foto.webPath
+    if (this.platform.is('hybrid')){
+      return {
+        filePath : simpanFile.uri,
+        webviewPath : Capacitor.convertFileSrc(simpanFile.uri)
+      }
+    } else {
+      return {
+        filePath : namaFile,
+        webviewPath : foto.webPath
+      }
     }
   }
 
   private async readAsBase64(foto : CameraPhoto) {
-    const response = await fetch(foto.webPath);
-    const blob = await response.blob();
+    if (this.platform.is('hybrid')){
+      const file = await Filesystem.readFile({
+        path: foto.path
+      });
+      return file.data;
+    } else {
+      const response = await fetch(foto.webPath);
+      const blob = await response.blob();
 
-    return await this.convertBlobToBase64(blob) as string;
+      return await this.convertBlobToBase64(blob) as string;
+    }
   }
 
   convertBlobToBase64 = (blob : Blob) => new Promise((resolve, reject) => {
@@ -72,12 +86,14 @@ export class FotoService {
     const listFoto = await Storage.get({key : this.keyFoto})
     this.dataFoto = JSON.parse(listFoto.value) || [];
 
-    for (let foto of this.dataFoto) {
-      const readFile = await Filesystem.readFile({
-        path : foto.filePath,
-        directory : FilesystemDirectory.Data
-      });
-      foto.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
+    if (!this.platform.is('hybrid')){
+      for (let foto of this.dataFoto) {
+        const readFile = await Filesystem.readFile({
+          path : foto.filePath,
+          directory : FilesystemDirectory.Data
+        });
+        foto.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
+      }
     }
   }
 }
