@@ -23,12 +23,7 @@ ion-card {
   border-width: 2px;
   border-color: black;
   background-color: transparent;
-}
-
-#input-field {
-  // border-style: solid;
-  // border-width: 3px;
-  // border-color: #202020;
+  margin: 20px;
 }
 
 #input-number-tab-2 {
@@ -38,10 +33,6 @@ ion-card {
 
 ion-input {
   padding: 0px;
-}
-
-:host {
-  padding-inline-start: 0px !important;
 }
 
 #guess-button {
