@@ -15,11 +15,11 @@ export class Tab2Page {
   constructor() {}
 
   numbergenerator() {
-    // this.randomnumber = Math.floor((Math.random() * 10) + 1);
-    // if (this.randomnumber > 0) {
-    //   this.message = "Number generated!"
-    // }
-    this.randomnumber = 1
+    this.randomnumber = Math.floor((Math.random() * 10) + 1);
+    if (this.randomnumber > 0) {
+      this.message = "Number generated!"
+    }
+    // this.randomnumber = 1
     console.log(this.randomnumber);
   }
 
