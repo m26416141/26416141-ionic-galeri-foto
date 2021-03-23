@@ -31,5 +31,4 @@ export class Tab2Page {
       this.message = "Sorry your answer is incorrect."
     }
   }
-
 }
