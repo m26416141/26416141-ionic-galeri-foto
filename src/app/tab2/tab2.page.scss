@@ -1,75 +1,82 @@
 #content {
-  text-align: center;
-  left: 0;
-  right: 0;
+    text-align: center;
+    left: 0;
+    right: 0;
 }
 
 // ion-item {
 //   padding: 0px;
 // }
-
 ion-card-header {
-  text-align: left;
+    text-align: left;
 }
 
 ion-card-content {
-  text-align: justify;
-  padding-bottom: 0px;
+    text-align: justify;
+    padding-bottom: 0px;
 }
 
 ion-card {
-  box-shadow: none;
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
-  background-color: transparent;
-  margin: 20px;
+    box-shadow: none;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    background-color: transparent;
+    margin: 20px;
 }
 
 #input-number-tab-2 {
-  padding-right: 20px;
-  padding-left: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 ion-input {
-  padding: 0px;
+    padding: 0px;
 }
 
 #guess-button {
-  border-style: solid;
-  border-width: 2px;
-  margin-top: 20px;
-  display: block;
-  margin-left: 20px;
-  margin-right: 20px;
+    border-style: solid;
+    border-width: 2px;
+    margin-top: 20px;
+    display: block;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #random-button {
-  border-style: solid;
-  border-width: 2px;
-  border-color: #d4d4d4;
-  color: black;
-  margin-top: 20px;
-  display: block;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #d4d4d4;
+    color: black;
+    margin-top: 20px;
+    display: block;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 #false-answer {
-  //   border-style: solid;
-  //   border-color: #ec455b;
-  //   border-width: 2px;
-  color: #ec455b;
-  padding: 20px;
-  margin: 20px;
+    //   border-style: solid;
+    //   border-color: #ec455b;
+    //   border-width: 2px;
+    color: #ec455b;
+    padding: 20px;
+    margin: 20px;
 }
 
 #correct-answer {
-  //   border-style: solid;
-  //   border-color: #ec455b;
-  //   border-width: 2px;
-  color: #2ed36f;
-  padding: 20px;
-  margin: 20px;
+    //   border-style: solid;
+    //   border-color: #ec455b;
+    //   border-width: 2px;
+    color: #2ed36f;
+    padding: 20px;
+    margin: 20px;
+}
+
+#fotobenar {
+    margin-top: 40px;
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
