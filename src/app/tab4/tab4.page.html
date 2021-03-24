@@ -1,9 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>tab4</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Foto di Cloud</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>Upload Foto</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-button color="danger" fill="outline" expand="block" (click)="hapusfoto()">Delete</ion-button>
+            <ion-button fill="outline" expand="block" (click)="uploadfoto()">Upload</ion-button>
+        </ion-card-content>
+    </ion-card>
 
+    <ion-grid>
+        <ion-row>
+            <ion-col size="3" *ngFor="let iFoto of urlImageStorage; index as position">
+                <ion-img [src]="iFoto"></ion-img>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
