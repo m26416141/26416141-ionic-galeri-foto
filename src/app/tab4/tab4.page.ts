@@ -21,23 +21,55 @@ export class Tab4Page implements OnInit {
     public fService: FotoService
   ) { }
 
-  hapusfoto() {
+  async ionViewDidEnter() {
+    console.log("ionviewdidenter")
+    await this.fService.loadFoto();
+    this.tamplikandata();
+  }
 
+  hapusfoto() {
+    var refImage = this.afStorage.storage.ref('imgStorage');
+    refImage.listAll().then((res) => {
+      res.items.forEach((itemRef) => {
+        itemRef.delete().then(() => {
+          //menampilkan data
+          this.tamplikandata();
+        });
+      });
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
+  tamplikandata() {
+    this.urlImageStorage = []
+    var refImage = this.afStorage.storage.ref('imgStorage');
+    refImage.listAll().then((res) => {
+      res.items.forEach((itemRef) => {
+        itemRef.getDownloadURL().then(url => {
+          this.urlImageStorage.unshift(url)
+        })
+      });
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   uploadfoto() {
+    this.urlImageStorage = []
     for (var index in this.fService.dataFoto) {
       const imgFilePath = `imgStorage/${this.fService.dataFoto[index].filePath}`;
       
       this.afStorage.upload(imgFilePath, this.fService.dataFoto[index].dataImage).then(() => {
         this.afStorage.storage.ref().child(imgFilePath).getDownloadURL().then((url) => {
           this.urlImageStorage.unshift(url)
+          console.log(url)
         });
       });
     }
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    
   }
-
 }
